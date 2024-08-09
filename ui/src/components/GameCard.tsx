@@ -32,23 +32,13 @@ export function GameCard({
   return (
     <Dialog>
       <DialogTrigger asChild>
+        <AsyncImage
+          src={game.metadata?.header_image}
+          className="w-full h-[300px] object-cover rounded-t-lg"
+          alt="Game Cover Art"
+        />
         <Card className="w-full max-w-sm bg-card text-card-foreground shadow-lg cursor-pointer">
           <div className="relative">
-            <Carousel>
-              <CarouselContent>
-                {game.metadata?.screenshots?.map((image, i) => (
-                  <CarouselItem key={i}>
-                    <AsyncImage
-                      src={image}
-                      className="w-full h-[300px] object-cover rounded-t-lg"
-                      alt="Game Cover Art"
-                    />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
             <div className="absolute top-4 left-4 bg-primary px-3 py-1 rounded-full text-primary-foreground text-sm font-medium">
               {[
                 game.metadata?.windows && "Windows",

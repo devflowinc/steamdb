@@ -116,6 +116,7 @@ async function steamSpyRequest(
   let successRequestCount = 0;
   let errorRequestCount = 0;
   while (true) {
+    await new Promise((res) => setTimeout(res, args.sleep * 1500));
     const { element } = await redisClient.brPop("appsToVisit", 0, 0);
     const appID = element;
     if (

@@ -3,14 +3,14 @@ version: '3.8'
 services:
 
   queuer:
-    image: trieve/steamdb-queuer
+    image: trieve/steamdb-queuer:2
     build:
       context: .
       dockerfile: Dockerfile.queuer
     entrypoint: "node queuer.js -R ${REDIS_URI}"
 
   scrapeSteam:
-    image: trieve/steamdb-scraper
+    image: trieve/steamdb-scraper:2
     build:
       context: .
       dockerfile: Dockerfile.scraper

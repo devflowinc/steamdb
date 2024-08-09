@@ -85,7 +85,7 @@ async function scraper(args) {
   } catch (error) {
     log(
       EXCEPTION,
-      `An exception of type ${error.name} occurred. Traceback: ${error.stack}`
+      `An exception of type ${error.name} occurred. Traceback: ${error.stack} ${error}`
     );
   }
   process.exit(0) // if you don't close yourself this will run forever
